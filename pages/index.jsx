@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Image from "next/image";
 import theme from "../themeui/theme";
 import { Heading, Link, Container, Grid, Text, Box, Flex, ThemeProvider } from "theme-ui";
 import Home from "../components/Home";

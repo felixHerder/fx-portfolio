@@ -346,6 +346,43 @@ const theme = {
       maxWidth: ["narrow", null, "narrowPlus"],
     },
   },
+  scrollSpy:{
+    hidden:{
+      color: "muted",
+      textDecoration: "none",
+      transition: "all .2s ease",
+      position:"relative",
+      ":hover,:focus": {
+        color: "primary",
+        cursor: "pointer",
+      },
+      "&::after": {
+        content: '""',
+        position: "absolute",
+        height: 2,
+        bottom: 0,
+        left: "10%",
+        backgroundColor: "muted",
+        width: "0%",
+        transition: "all .2s ease",
+      },
+    },
+    active:{
+      variant:"scrollSpy.hidden",
+      color:"text",
+      "&::after":{
+        content: '""',
+        position: "absolute",
+        height: 2,
+        bottom: 0,
+        left: "10%",
+        backgroundColor: "muted",
+        width: "80%",
+        transition: "all .2s ease",
+      }
+     
+    }
+  },
   styles: {
     root: {
       fontFamily: "body",
@@ -357,6 +394,7 @@ const theme = {
       textRendering: "optimizeLegibility",
       WebkitFontSmoothing: "antialiased",
       MozOsxFontSmoothing: "grayscale",
+      scrollBehavior: "smooth",
     },
     h1: {
       variant: "text.heading",
@@ -397,12 +435,13 @@ const theme = {
       borderColor: "border",
     },
     a: {
-      color: "secondary",
+      color: "muted",
       textDecoration: "none",
       textUnderlinePosition: "under",
-      ":focus,:hover": {
+      transition: "color 0.2s ease",
+      position:"relative",
+      ":hover,:focus": {
         color: "primary",
-        textDecorationStyle: "wavy",
         cursor: "pointer",
       },
     },

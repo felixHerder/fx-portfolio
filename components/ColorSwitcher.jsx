@@ -10,6 +10,7 @@ const ColorSwitcher = (props) => {
         color: "primary",
         cursor: "pointer",
         borderRadius: "circle",
+        width: [24, 28, 32], height: [24, 28, 32],
         transition: "box-shadow .125s ease-in-out",
         ":hover,:focus": {
           boxShadow: "0 0 0 3px",
