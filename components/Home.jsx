@@ -19,8 +19,8 @@ export default function Home() {
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: .3 }}
-          sx={{ variant: "text.ultratitle", fontSize: [6, 7, 8], mb: 0 }}
+          transition={{ delay: .5}}
+          sx={{ variant: "text.ultratitle", fontSize: [5, 6, 7], mb: 0 }}
         >
           Hi, I&apos;m{" "}
           <Text as="span" color="primary">
@@ -30,8 +30,8 @@ export default function Home() {
         <motion.h2
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: .6 }}
-          sx={{ variant: "text.title", color: "secondary", fontWeight: "100", fontFamily: "body", letterSpacing: "-0.06em", mt: 3 }}
+          transition={{ delay: .8 }}
+          sx={{ variant: "text.title", fontSize: [3, 4, 5], color: "secondary", fontWeight: "100", fontFamily: "body", letterSpacing: "-0.06em", mt: 0 }}
         >
           a frontend web developer
         </motion.h2>

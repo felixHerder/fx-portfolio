@@ -1,41 +1,32 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Heading, Link, Container, Grid, Text, Box, Flex, ThemeProvider } from "theme-ui";
+import { Grid } from "theme-ui";
 import { motion } from "framer-motion";
 import FxLogo from "../assets/fx_outline.svg";
 import ColorSwitcher from "../components/ColorSwitcher";
-import styled from "@emotion/styled";
 
 export default function Nav() {
   //framer motion variants
   const nav = {
     visible: {
-      y: 0,
       opacity: 1,
-      transition: {
-        duration:0.2,
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1, delayChildren: 0.1 },
     },
     hidden: {
-      y: 50,
       opacity: 0,
-      transition: {
-        when: "afterChildren",
-      },
+      transition: { staggerChildren: 0.1, staggerDirection: -1 },
     },
   };
   const link = {
-    visible: { y: 0, opacity: 1 },
-    hidden: { y: 50, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { type: "spring", ease: "easeIn" } },
+    hidden: { x: -40, opacity: 0 },
   };
   //state
   const [isScrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState("home");
   useEffect(() => {
     const sectionIds = ["home", "work", "about", "contact"];
     const sectionNodes = sectionIds.map((s) => document.getElementById(s));
-    const offsets = sectionNodes.map((s) => s.offsetTop - window.outerHeight/3);
+    const offsets = sectionNodes.map((s) => s.offsetTop - window.outerHeight / 3);
 
     const handleScroll = () => {
       //scroll spy functionality, sets active section id
@@ -65,9 +56,10 @@ export default function Nav() {
     };
   }, []);
   //log active section
-  useEffect(() => {
-    console.log("section: ", activeSection);
-  }, [activeSection]);
+  // useEffect(() => {
+  //   console.log("section: ", activeSection);
+  // }, [activeSection]);
+
   //render
   return (
     <nav
@@ -76,19 +68,20 @@ export default function Nav() {
         position: "fixed",
         left: "50%",
         transform: "translateX(-50%)",
-        transition: "all .5s ease",
-        bg: isScrolled ? "background" : "transparent",
+        transition: "all .3s ease",
+        bg: isScrolled ? "elevated" : "transparent",
         zIndex: 1,
-        boxShadow: isScrolled ? "elevated" : "none",
+        boxShadow: isScrolled ? "small" : "none",
+        "&:hover": { boxShadow: isScrolled ? "card" : "none" },
       }}
     >
       <motion.div
+        variants={nav}
         initial="hidden"
         animate="visible"
-        variants={nav}
-        sx={{ variant: "layout.wide", py: [2, 3, 3], px:[1,2,2], display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        sx={{ variant: "layout.wide", py: [2, 3, 3], px: [1, 2, 2], display: "flex", justifyContent: "space-between", alignItems: "center" }}
       >
-        <motion.a href="#home" whileTap={{ scale: 0.9 }} sx={{ variant: "styles.a", ml: 3, lineHeight: 0 }}>
+        <motion.a href="#home" whileTap={{ scale: 0.9 }} animate={{ scale: 1 }} sx={{ variant: "styles.a", ml: 3, lineHeight: 0 }}>
           <FxLogo
             width="1em"
             height="1em"
@@ -105,30 +98,18 @@ export default function Nav() {
           columns={4}
           sx={{ alignItems: "center", justifyItems: "center", textTransform: "lowercase", fontWeight: 500, fontSize: [0, 1, 2] }}
         >
-          <motion.a
-            href="#work"
-            variants={link}
-            whileTap={{ scale: 0.9 }}
-            sx={{ variant: activeSection === "work" ? "scrollSpy.active" : "scrollSpy.hidden" }}
-          >
-            Work
-          </motion.a>
-          <motion.a
-            href="#about"
-            variants={link}
-            whileTap={{ scale: 0.9 }}
-            sx={{ variant: activeSection === "about" ? "scrollSpy.active" : "scrollSpy.hidden" }}
-          >
-            About
-          </motion.a>
-          <motion.a
-            href="#contact"
-            variants={link}
-            whileTap={{ scale: 0.9 }}
-            sx={{ variant: activeSection === "contact" ? "scrollSpy.active" : "scrollSpy.hidden" }}
-          >
-            Contact
-          </motion.a>
+          {["work", "about", "contact"].map((sect) => (
+            <motion.a
+              key={sect}
+              href={`#${sect}`}
+              variants={link}
+              whileHover={{ y: 2 }}
+              whileTap={{ scale: 0.85 }}
+              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden" }}
+            >
+              {sect}
+            </motion.a>
+          ))}
           <ColorSwitcher />
         </Grid>
       </motion.div>

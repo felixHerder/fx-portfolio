@@ -369,7 +369,6 @@ const theme = {
     },
     active:{
       variant:"scrollSpy.hidden",
-      color:"text",
       "&::after":{
         content: '""',
         position: "absolute",

@@ -3,7 +3,8 @@ import Head from "next/head";
 import theme from "../themeui/theme";
 import { Heading, Link, Container, Grid, Text, Box, Flex, ThemeProvider } from "theme-ui";
 import Home from "../components/Home";
-import Nav from "../components/Nav"
+import Nav from "../components/Nav";
+import Aside from "../components/Aside"
 
 export default function Index() {
   return (
@@ -13,6 +14,7 @@ export default function Index() {
       </Head>
       <div sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Nav />
+        <Aside />
         <main sx={{ width: "100%" }}>
           <Home />
           <section id="work" sx={{ height: "800px" }}>
