@@ -14,8 +14,9 @@ const colors = {
   red: "#ec3750",
   orange: "#ff8c37",
   yellow: "#f1c40f",
+  greenLighter: "#90e9ce",
   green: "#33d6a6",
-  greenDarker: "#198061",
+  greenDarker: "#089168",
   cyan: "#5bc0de",
   blue: "#338eda",
   purple: "#a633d6",
@@ -48,6 +49,8 @@ const theme = {
     accent: colors.cyan,
     gx1: colors.darkless,
     gx2: colors.dark,
+    gxc1: colors.greenLighter,
+    gxc2: colors.green,
     modes: {
       light: {
         text: colors.black,
@@ -63,6 +66,8 @@ const theme = {
         accent: colors.blue,
         gx1: colors.white,
         gx2: colors.smoke,
+        gxc1: colors.green,
+        gxc2: colors.greenDarker,
       },
     },
   },
@@ -80,6 +85,7 @@ const theme = {
     body: 1.5,
   },
   fontWeights: {
+    light:200,
     body: 400,
     bold: 700,
     heading: 700,
@@ -114,11 +120,11 @@ const theme = {
   },
   text: {
     heading: {
-      fontFamily: "heading",
-      fontWeight: "bold",
+      fontFamily: "body",
+      color:"primary",
+      fontSize:[3,4,5],
+      fontWeight: "light",
       lineHeight: "heading",
-      mt: 0,
-      mb: 0,
     },
     ultratitle: {
       fontFamily: "heading",
@@ -186,6 +192,14 @@ const theme = {
     },
   },
   badges: {
+    primary: {
+      borderRadius: "circle",
+      bg:"secondary",
+      color:"background",
+      px: 3,
+      py: 1,
+      fontSize: 1,
+    },
     pill: {
       borderRadius: "circle",
       px: 3,
@@ -261,14 +275,13 @@ const theme = {
       bg: "elevated",
       color: "text",
       p: [3, 4],
-      borderRadius: "extra",
-      boxShadow: "card",
+      borderRadius: "small",
+      boxShadow: "none",
       overflow: "hidden",
     },
     sunken: {
+      variant: "cards.primary",
       bg: "sunken",
-      p: [3, 4],
-      borderRadius: "extra",
     },
     interactive: {
       variant: "cards.primary",

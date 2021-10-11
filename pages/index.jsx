@@ -1,10 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import theme from "../themeui/theme";
-import { Heading, Link, Container, Grid, Text, Box, Flex, ThemeProvider } from "theme-ui";
+import { ThemeProvider } from "theme-ui";
 import Home from "../components/Home";
 import Nav from "../components/Nav";
 import Aside from "../components/Aside"
+import Work from "../components/Work"
 
 export default function Index() {
   return (
@@ -17,9 +18,7 @@ export default function Index() {
         <Aside />
         <main sx={{ width: "100%" }}>
           <Home />
-          <section id="work" sx={{ height: "800px" }}>
-            Work
-          </section>
+          <Work />
           <section id="about" sx={{ height: "800px" }}>
             About
           </section>

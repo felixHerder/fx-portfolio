@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid } from "theme-ui";
+import { Grid,Flex } from "theme-ui";
 import { motion } from "framer-motion";
 import FxLogo from "../assets/fx_outline.svg";
 import ColorSwitcher from "../components/ColorSwitcher";
@@ -26,7 +26,8 @@ export default function Nav() {
   useEffect(() => {
     const sectionIds = ["home", "work", "about", "contact"];
     const sectionNodes = sectionIds.map((s) => document.getElementById(s));
-    const offsets = sectionNodes.map((s) => s.offsetTop - window.outerHeight / 3);
+    const navHeight = document.getElementById('nav').clientHeight;
+    const offsets = sectionNodes.map((s) => s.offsetTop-window.innerHeight/3);
 
     const handleScroll = () => {
       //scroll spy functionality, sets active section id
@@ -55,6 +56,16 @@ export default function Nav() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  
+  //Overwrite default smooth scrolling in order to offses nav height
+  const handleNavClick= (e)=>{
+    e.preventDefault();
+    const targetOffset = document.getElementById(e.target.hash.slice(1)).offsetTop;
+    const navHeight = document.getElementById('nav').clientHeight;
+    console.log(e.target.hash.slice(1),navHeight); 
+    window.scrollTo(0,targetOffset-navHeight);
+  }
+
   //log active section
   // useEffect(() => {
   //   console.log("section: ", activeSection);
@@ -62,26 +73,35 @@ export default function Nav() {
 
   //render
   return (
-    <nav
-      sx={{
+    <nav 
+      sx={(theme) => ({
         width: "100%",
         position: "fixed",
         left: "50%",
         transform: "translateX(-50%)",
-        transition: "all .3s ease",
-        bg: isScrolled ? "elevated" : "transparent",
+        transition: "background .3s ease, box-shadow .3s ease",
+        background: isScrolled ? theme.util.gx(theme.colors.gx1, theme.colors.gx2) : "transparent",
         zIndex: 1,
-        boxShadow: isScrolled ? "small" : "none",
+        boxShadow: isScrolled ? "none" : "none",
         "&:hover": { boxShadow: isScrolled ? "card" : "none" },
-      }}
+      })}
     >
-      <motion.div
+      <motion.div id="nav"
         variants={nav}
         initial="hidden"
         animate="visible"
-        sx={{ variant: "layout.wide", py: [2, 3, 3], px: [1, 2, 2], display: "flex", justifyContent: "space-between", alignItems: "center" }}
+        sx={{
+          variant: "layout.wide",
+          py: [2, 3],
+          my: isScrolled ? 0 : [3, 4],
+          px:[3,4,5],
+          transition: "margin .2s ease",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
       >
-        <motion.a href="#home" whileTap={{ scale: 0.9 }} animate={{ scale: 1 }} sx={{ variant: "styles.a", ml: 3, lineHeight: 0 }}>
+        <motion.a href="#home" whileTap={{ scale: 0.9 }} animate={{ scale: 1 }} sx={{ variant: "styles.a", lineHeight: 0 }}>
           <FxLogo
             width="1em"
             height="1em"
@@ -93,25 +113,23 @@ export default function Nav() {
             })}
           />
         </motion.a>
-        <Grid
-          gap={[1, 3, 4]}
-          columns={4}
-          sx={{ alignItems: "center", justifyItems: "center", textTransform: "lowercase", fontWeight: 500, fontSize: [0, 1, 2] }}
+        <Flex sx={{ alignItems: "center", justifyItems: "center", textTransform: "lowercase", fontWeight: 500, fontSize: [0, 1, 2],"& > *":{ml:[3,4,5] } }}
         >
           {["work", "about", "contact"].map((sect) => (
             <motion.a
               key={sect}
               href={`#${sect}`}
+              onClick={handleNavClick}
               variants={link}
               whileHover={{ y: 2 }}
               whileTap={{ scale: 0.85 }}
-              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden" }}
+              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden"}}
             >
               {sect}
             </motion.a>
           ))}
-          <ColorSwitcher />
-        </Grid>
+          <ColorSwitcher sx={{ml:[3,4,5] }}/>
+        </Flex>
       </motion.div>
     </nav>
   );
