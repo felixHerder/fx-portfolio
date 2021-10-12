@@ -1,3 +1,4 @@
+import { alpha } from "@theme-ui/color";
 const colors = {
   darker: "#121217",
   dark: "#17171d",
@@ -8,7 +9,7 @@ const colors = {
   slate: "#3c4858",
   muted: "#8492a6",
   smoke: "#e0e6ed",
-  snow: "#f9fafc",
+  snow: "#eef1f6",
   white: "#fcfcfc",
 
   red: "#ec3750",
@@ -37,6 +38,7 @@ const theme = {
   colors: {
     ...colors,
     text: colors.white,
+    textAlt: colors.smoke,
     primary: colors.green,
     background: colors.dark,
     elevated: colors.darkless,
@@ -49,13 +51,16 @@ const theme = {
     accent: colors.cyan,
     gx1: colors.darkless,
     gx2: colors.dark,
+    gxt1: alpha(colors.darkless,0),
+    gxt2: alpha(colors.darkless,1),
     gxc1: colors.greenLighter,
-    gxc2: colors.green,
+    gxc2: colors.greenDarker,
     modes: {
       light: {
         text: colors.black,
+        textAlt: colors.steel,
         background: colors.white,
-        elevated: colors.white,
+        elevated: colors.snow,
         sheet: colors.snow,
         sunken: colors.smoke,
         border: colors.smoke,
@@ -66,6 +71,8 @@ const theme = {
         accent: colors.blue,
         gx1: colors.white,
         gx2: colors.smoke,
+        gxt1: alpha(colors.snow,0),
+        gxt2: alpha(colors.snow,1),
         gxc1: colors.green,
         gxc2: colors.greenDarker,
       },
@@ -79,13 +86,13 @@ const theme = {
   lineHeights: {
     limit: 0.875,
     title: 1,
-    heading: 1.125,
+    heading: 1.325,
     subheading: 1.25,
     caption: 1.375,
     body: 1.5,
   },
   fontWeights: {
-    light:200,
+    light: 200,
     body: 400,
     bold: 700,
     heading: 700,
@@ -121,8 +128,8 @@ const theme = {
   text: {
     heading: {
       fontFamily: "body",
-      color:"primary",
-      fontSize:[3,4,5],
+      color: "primary",
+      fontSize: [3, 4, 5],
       fontWeight: "light",
       lineHeight: "heading",
     },
@@ -194,8 +201,8 @@ const theme = {
   badges: {
     primary: {
       borderRadius: "circle",
-      bg:"secondary",
-      color:"background",
+      bg: "secondary",
+      color: "background",
       px: 3,
       py: 1,
       fontSize: 1,
@@ -223,15 +230,13 @@ const theme = {
       display: "inline-flex",
       alignItems: "center",
       justifyContent: "center",
-      boxShadow: "card",
+      boxShadow: "none",
       letterSpacing: "headline",
       WebkitTapHighlightColor: "transparent",
-      transition: "transform .125s ease-in-out, box-shadow .125s ease-in-out",
+      transition: " box-shadow .2s ease",
       ":focus,:hover": {
         boxShadow: "elevated",
-        transform: "scale(1.0625)",
       },
-      svg: { ml: -1, mr: 2 },
     },
     lg: {
       variant: "buttons.primary",
@@ -242,9 +247,15 @@ const theme = {
     },
     outline: {
       variant: "buttons.primary",
+      boxShadow: "none",
       bg: "transparent",
-      color: "primary",
-      border: "2px solid currentColor",
+      color: "secondary",
+      border: "2px solid",
+      borderColor: "secondary",
+      ":focus,:hover": {
+        color: "primary",
+        borderColor: "primary",
+      },
     },
     outlineLg: {
       variant: "buttons.primary",
@@ -258,8 +269,9 @@ const theme = {
     },
     cta: {
       variant: "buttons.primary",
+      boxShadow: "none",
       fontSize: 2,
-      backgroundImage: (t) => t.util.gx("orange", "red"),
+      backgroundImage: (t) => t.util.gx("green", "greenDarker"),
     },
     ctaLg: {
       variant: "buttons.primary",
@@ -359,12 +371,12 @@ const theme = {
       maxWidth: ["narrow", null, "narrowPlus"],
     },
   },
-  scrollSpy:{
-    hidden:{
+  scrollSpy: {
+    hidden: {
       color: "muted",
       textDecoration: "none",
       transition: "all .2s ease",
-      position:"relative",
+      position: "relative",
       ":hover,:focus": {
         color: "primary",
         cursor: "pointer",
@@ -372,7 +384,7 @@ const theme = {
       "&::after": {
         content: '""',
         position: "absolute",
-        height: 2,
+        height: 1,
         bottom: 0,
         left: "10%",
         backgroundColor: "muted",
@@ -380,20 +392,19 @@ const theme = {
         transition: "all .2s ease",
       },
     },
-    active:{
-      variant:"scrollSpy.hidden",
-      "&::after":{
+    active: {
+      variant: "scrollSpy.hidden",
+      "&::after": {
         content: '""',
         position: "absolute",
-        height: 2,
+        height: 1,
         bottom: 0,
         left: "10%",
         backgroundColor: "muted",
         width: "80%",
         transition: "all .2s ease",
-      }
-     
-    }
+      },
+    },
   },
   styles: {
     root: {
@@ -447,11 +458,8 @@ const theme = {
       borderColor: "border",
     },
     a: {
-      color: "muted",
+      color: "inherit",
       textDecoration: "none",
-      textUnderlinePosition: "under",
-      transition: "color 0.2s ease",
-      position:"relative",
       ":hover,:focus": {
         color: "primary",
         cursor: "pointer",
@@ -525,6 +533,7 @@ theme.util = {
   supportsBackdrop: "@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)",
   cx: null,
   gx: null,
+  gx2: null,
   gxText: null,
 };
 theme.util.cx = (c) => theme.colors[c] || c;
@@ -532,6 +541,11 @@ theme.util.gx = (from, to) => `radial-gradient(
   ellipse farthest-corner at top left,
   ${theme.util.cx(from)},
   ${theme.util.cx(to)}
+)`;
+theme.util.gx2 = (from, to) => `linear-gradient(
+  to bottom,
+  ${theme.util.cx(from)},
+  ${theme.util.cx(to)} 99%
 )`;
 theme.util.gxText = (from, to) => ({
   color: theme.util.cx(to),

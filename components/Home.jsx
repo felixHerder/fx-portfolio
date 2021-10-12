@@ -1,7 +1,18 @@
-import { Heading, Container, Text, Box, Flex } from "theme-ui";
+import { Heading, Container, Text, Box, Button } from "theme-ui";
 import { motion } from "framer-motion";
 import React from "react";
+import { BsChevronDoubleDown } from "react-icons/bs";
 export default function Home() {
+  const handleNavClick = (e) => {
+    e.preventDefault();
+    console.log(e.target);
+    const targetOffset = document.getElementById(e.target.hash.slice(1)).offsetTop;
+    const navHeight = document.getElementById("nav").clientHeight;
+    console.log(e.target.hash.slice(1), navHeight);
+    window.scrollTo(0, targetOffset - navHeight);
+  };
+  const ButtonMotion = motion(Button, { forwardMotionProps: true });
+  const BoxMotion = motion(Box, { forwardMotionProps: true });
   return (
     <section
       id="home"
@@ -16,7 +27,7 @@ export default function Home() {
         background: theme.util.gx(theme.colors.gx1, theme.colors.gx2),
       })}
     >
-      <Box>
+      <Box sx={{ mt: -5 }}>
         <motion.h1
           initial={{ x: -100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -24,7 +35,7 @@ export default function Home() {
           sx={{ variant: "text.ultratitle", fontSize: [5, 6, 7], my: 1 }}
         >
           Hi, I&apos;m{" "}
-          <Text as="span" color="primary" sx={theme=>({...theme.util.gxText(theme.colors.gxc1, theme.colors.gxc2)})}>
+          <Text as="span" color="primary" sx={(theme) => ({ ...theme.util.gxText(theme.colors.gxc1, theme.colors.gxc2) })}>
             Felix
           </Text>
         </motion.h1>
@@ -36,16 +47,14 @@ export default function Home() {
         >
           a frontend web developer
         </motion.h2>
-      
-
-        <Box sx={{position:"relative",width:"100%"}}>
+        <Box sx={{ position: "relative", width: "100%" }}>
           <motion.h3
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
             sx={(theme) => ({
-              position:"absolute",
-              width:"100%",
+              position: "absolute",
+              width: "100%",
               variant: "text.title",
               textAlign: "right",
               fontSize: [1, 2],
@@ -54,12 +63,46 @@ export default function Home() {
               fontFamily: "body",
               letterSpacing: "-0.06em",
               mt: 1,
-              ...theme.util.gxText(theme.colors.secondary, theme.colors.placeholder)
+              ...theme.util.gxText(theme.colors.secondary, theme.colors.placeholder),
             })}
           >
             based in Iași
           </motion.h3>
+          <BoxMotion
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 1 } }}
+            sx={{ position: "absolute", top: "15vh", left: "50%", transform: "translateX(-50%)" }}
+          >
+            <ButtonMotion
+              as="a"
+              href="#work"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleNavClick}
+              variant="outline"
+              sx={(theme) => ({
+                width: "max-content",
+                color: "secondary",
+                borderColor: "secondary",
+                textDecoration: "none",
+                fontSize: 0,
+                fontWeight: 900,
+                mt: 1,
+                pt: 2,
+                pb: 1,
+                px: 3,
+                lineHeight: 2,
+                textTransform: "uppercase",
+                letterSpacing: 0,
+              })}
+            >
+              Checkout my works
+            </ButtonMotion>
+          </BoxMotion>
         </Box>
+        <BoxMotion animate={{ scale: [0.9, 1.1, 0.9] }} transition={{ duration: 2, repeat: "Infinity" }}>
+          <BsChevronDoubleDown sx={{ display: "block", width: 24, height: 24, color: "primary", mx: "auto", mt: 5 }} />
+        </BoxMotion>
       </Box>
     </section>
   );

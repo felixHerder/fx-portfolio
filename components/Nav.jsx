@@ -75,6 +75,7 @@ export default function Nav() {
   return (
     <nav 
       sx={(theme) => ({
+        zIndex:99,
         width: "100%",
         position: "fixed",
         left: "50%",
@@ -123,7 +124,7 @@ export default function Nav() {
               variants={link}
               whileHover={{ y: 2 }}
               whileTap={{ scale: 0.85 }}
-              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden"}}
+              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden", fontWeight:200}}
             >
               {sect}
             </motion.a>
