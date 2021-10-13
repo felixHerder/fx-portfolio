@@ -45,12 +45,13 @@ export default function ProjectCard({ proj, ...rest }) {
         border: "1px solid",
         borderColor: "transparent",
         transition: "border-color .2s ease",
-        "&:hover": { borderColor: alpha("primary", 0.5) },
+        "&:hover,&:focus": { borderColor: alpha("primary", 0.5) },
         "&:hover #proj-title,&:focus #proj-title": { color: "primary" },
+        "&:hover #img-box,&:focus #img-box": { transform:"scale(1.05)" },
       }}
     >
-      <Box sx={{ height: [200, 250, 300, 250, 320], width: "100%", overflow: "hidden", position: "absolute" }}>
-        <Image src={proj.isrc} alt={proj.title} layout="responsive" placeholder="blur" />
+      <Box  sx={{ height: [200, 250, 300, 250, 320], width: "100%", overflow: "hidden", position: "absolute", }}>
+        <Image  id="img-box" src={proj.isrc} alt={proj.title} layout="responsive" placeholder="blur" sx={{transform:"scale(1)",transition:"transform .5s ease"}}/>
       </Box>
       <Box
         sx={(theme) => ({

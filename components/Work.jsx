@@ -7,6 +7,7 @@ import PholdImg from "../public/geofolds.png";
 import GeofoldsImg from "../public/geofolds.png";
 import PokedexImg from "../public/pokedex.png";
 import SwagboxImg from "../public/swagbox.png";
+import JssketchesImg from "../public/jssketches.png"
 
 //skill component
 const Skill = ({ Icon, desc, ...rest }) => {
@@ -41,7 +42,7 @@ export default function Work() {
           ))}
         </Flex>
 
-        <Grid columns={[null, null, 1, 2]} gap={5} sx={{ my: 3,mb:5 }}>
+        <Grid columns={[null, null, 1, 2]} gap={5} sx={{ my: 3, mb: 5 }}>
           {[
             {
               title: "Feudal Swag",
@@ -72,7 +73,13 @@ export default function Work() {
               git: "https://github.com/felixHerder/pokedex-cards",
               web: "https://pokedex-cards.felixherder.space",
             },
-            { title: "JS Sketches", badges: [], isrc: PholdImg },
+            {
+              title: "Vanilla JS Sketches",
+              badges: ['javascript','html','css'],
+              isrc: JssketchesImg,
+              git: "https://github.com/felixHerder/jssketches",
+              web: "https://jssketches.felixherder.space",
+            },
           ].map((proj, idx) => (
             <ProjectCard proj={proj} key={idx} />
           ))}

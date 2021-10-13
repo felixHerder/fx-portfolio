@@ -1,7 +1,7 @@
 import { Heading, Container, Text, Box, Button } from "theme-ui";
 import { motion } from "framer-motion";
 import React from "react";
-import { BsChevronDoubleDown } from "react-icons/bs";
+import { BsChevronDown } from "react-icons/bs";
 export default function Home() {
   const handleNavClick = (e) => {
     e.preventDefault();
@@ -23,6 +23,7 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        position: "relative",
         alignItems: "center",
         background: theme.util.gx(theme.colors.gx1, theme.colors.gx2),
       })}
@@ -71,7 +72,7 @@ export default function Home() {
           <BoxMotion
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { delay: 1 } }}
-            sx={{ position: "absolute", top: "15vh", left: "50%", transform: "translateX(-50%)" }}
+            sx={{ position: "absolute", top: "5vh", left: "50%", transform: "translateX(-50%)" }}
           >
             <ButtonMotion
               as="a"
@@ -100,10 +101,10 @@ export default function Home() {
             </ButtonMotion>
           </BoxMotion>
         </Box>
-        <BoxMotion animate={{ scale: [0.9, 1.1, 0.9] }} transition={{ duration: 2, repeat: "Infinity" }}>
-          <BsChevronDoubleDown sx={{ display: "block", width: 24, height: 24, color: "primary", mx: "auto", mt: 5 }} />
-        </BoxMotion>
       </Box>
+      <BoxMotion initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 1, delay: 1 }} sx={{ position: "absolute", bottom: 0 }}>
+        <BsChevronDown sx={{ display: "block", width: 24, height: 24, color: "placeholder", mb: 4 }} />
+      </BoxMotion>
     </section>
   );
 }
