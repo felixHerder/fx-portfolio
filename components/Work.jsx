@@ -3,11 +3,12 @@ import { Grid, Card, Heading, Container, Box, Flex, Badge } from "theme-ui";
 import { FaReact, FaSass } from "react-icons/fa";
 import { SiJavascript, SiNextdotjs, SiCsswizardry, SiHtml5, SiWebpack, SiBabel } from "react-icons/si";
 import ProjectCard from "./ProjectCard";
-import PholdImg from "../public/geofolds.png";
-import GeofoldsImg from "../public/geofolds.png";
-import PokedexImg from "../public/pokedex.png";
-import SwagboxImg from "../public/swagbox.png";
-import JssketchesImg from "../public/jssketches.png"
+import GeofoldsImg from "../public/projects/geofolds.png";
+import PokedexImg from "../public/projects/pokedex.png";
+import SwagboxImg from "../public/projects/swagbox.png";
+import JssketchesImg from "../public/projects/jssketches.png";
+import HyperionImg from "../public/projects/hyperion.png";
+import FeudalSwagImg from "../public/projects/feudalswag.png";
 
 //skill component
 const Skill = ({ Icon, desc, ...rest }) => {
@@ -23,7 +24,10 @@ export default function Work() {
     <section id="work" sx={(theme) => ({ bg: "elevated" })}>
       <Container variant="wide" sx={{ px: [3, 5], display: "flex", flexDirection: "column" }}>
         <Flex sx={{ justifyContent: "space-between", alignItems: "end", py: [3, 4, 5, 5, 6], color: "placeholder" }}>
-          <Heading variant="ultratitle" sx={(theme) => ({ ...theme.util.gxText(theme.colors.text, theme.colors.secondary), lineHeight: 0.8 })}>
+          <Heading
+            variant="ultratitle"
+            sx={(theme) => ({ ...theme.util.gxText(theme.colors.text, theme.colors.secondary), lineHeight: 0.8 })}
+          >
             Work
           </Heading>
           {[
@@ -46,39 +50,52 @@ export default function Work() {
           {[
             {
               title: "Feudal Swag",
-              badges: ["javascript", "react", "theme-ui", "styled-components", "redux", "firebase"],
-              isrc: PholdImg,
-              git: "https://github.com/felixHerder/geofolds",
-              web: "https://geofolds.felixherder.space",
+              badges: ["javascript", "react", "chakra-ui", "redux", "cra", "firebase"],
+              isrc: FeudalSwagImg,
+              git: "https://github.com/felixHerder/feudal-swag",
+              web: "https://feudalswag.felixherder.space/shop",
             },
-            { title: "Hyperion Mission Control", badges: ["typescript", "react", "material-ui", "express", "webpack"], isrc: PholdImg },
+            {
+              title: "Hyperion Mission Control",
+              badges: ["typescript", "react", "material-ui", "webpack", "express", "mongodb atlas", "aws ec2"],
+              isrc: HyperionImg,
+              git: "https://github.com/felixHerder/hyperion-mc",
+              web: "https://hyperion.felixherder.space",
+            },
             {
               title: "Swag Box",
-              badges: ["javascript", "react", "tachyons", "express", "postgresql"],
+              badges: ["javascript", "react", "tachyons", "cra", "express", "postgresql", "clarifai"],
               isrc: SwagboxImg,
               git: "https://github.com/felixHerder/swagbox-app",
               web: "https://swagbox.felixherder.space",
-            },
-            {
-              title: "Geofolds Landing",
-              badges: ["sass", "css", "html"],
-              isrc: GeofoldsImg,
-              git: "https://github.com/felixHerder/geofolds",
-              web: "https://geofolds.felixherder.space",
+              description:"Dashboard for the Clarifai image clothing clasifier. Please be patient white the heroku backend spins up. \n Frontend is react built with create-react-app and tachyons. Backend is build with node and express with postgresql for user auth and redis for jwt authentication \n The submited image url is sent to the express backend which sends a post request to the Clarifai api. The frontend is hosted on github pages and the backend on heroku."
             },
             {
               title: "Pokedex Cards",
-              badges: ["javascript", "react", "css", "pokeapi", "cra"],
+              badges: ["javascript", "react", "css", "cra", "pokeapi"],
               isrc: PokedexImg,
               git: "https://github.com/felixHerder/pokedex-cards",
               web: "https://pokedex-cards.felixherder.space",
+              description:
+                "Single page app built with React using data from pokeapi.co and vanilla css. \n Each card is generated dynamicaly from json data supplied by the pokeapi rest server. Card images are composites of svg sprites from pokeapi and pseudorandom background images. \n Fetched data is cached in localstorage for subsequent page loads in order to reduce load on the pokeapi server. Also has an option for loading diferent generations of cards and a simple search. Build and developed with create-react-app and hosted on github pages",
+            },
+            {
+              title: "Geofolds Landing",
+              badges: ["sass", "css"],
+              isrc: GeofoldsImg,
+              git: "https://github.com/felixHerder/geofolds",
+              web: "https://geofolds.felixherder.space",
+              description:
+                "A landing page for a fictional company build using Sass with and emphasis on modular and reusable styles through variables, mixins and functions. No ui library or utility used. \n Css built from scss using Node and npm with scripts configured for development and production using sass and postcss with autoprefixer.",
             },
             {
               title: "Vanilla JS Sketches",
-              badges: ['javascript','html','css'],
+              badges: ["javascript", "css"],
               isrc: JssketchesImg,
               git: "https://github.com/felixHerder/jssketches",
               web: "https://jssketches.felixherder.space",
+              description:
+                "Various projects done with vanilla javascript and css. \n In order to get a better grasp of the fundamentals of frontend web development I've build these small experiments without the help of frameworks or ui libraries or utilities.",
             },
           ].map((proj, idx) => (
             <ProjectCard proj={proj} key={idx} />

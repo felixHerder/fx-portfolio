@@ -15,7 +15,11 @@ export default function ProjectCard({ proj, ...rest }) {
     },
   };
   const badgeBg = {
-    visible: { opacity: 1, transition: { duration: 0.2, type: "spring", ease: "easeIn" }, transition: { staggerChildren: 0.05, delayChildren: 0 } },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.2, type: "spring", ease: "easeIn" },
+      transition: { staggerChildren: 0.05, delayChildren: 0 },
+    },
     hidden: { opacity: 0, transition: { staggerChildren: 0.05, staggerDirection: -1 } },
   };
   const badgeMotion = {
@@ -40,6 +44,8 @@ export default function ProjectCard({ proj, ...rest }) {
       initial="hidden"
       sx={{
         position: "relative",
+        display:"flex",
+        flexDirection:"column",
         p: [0, 0],
         bg: "elevated",
         border: "1px solid",
@@ -47,11 +53,18 @@ export default function ProjectCard({ proj, ...rest }) {
         transition: "border-color .2s ease",
         "&:hover,&:focus": { borderColor: alpha("primary", 0.5) },
         "&:hover #proj-title,&:focus #proj-title": { color: "primary" },
-        "&:hover #img-box,&:focus #img-box": { transform:"scale(1.05)" },
+        "&:hover #img-box,&:focus #img-box": { transform: "scale(1.05)" },
       }}
     >
-      <Box  sx={{ height: [200, 250, 300, 250, 320], width: "100%", overflow: "hidden", position: "absolute", }}>
-        <Image  id="img-box" src={proj.isrc} alt={proj.title} layout="responsive" placeholder="blur" sx={{transform:"scale(1)",transition:"transform .5s ease"}}/>
+      <Box sx={{ height: [200, 250, 300, 250, 320], width: "100%", overflow: "hidden", position: "absolute" }}>
+        <Image
+          id="img-box"
+          src={proj.isrc}
+          alt={proj.title}
+          layout="responsive"
+          placeholder="blur"
+          sx={{ transform: "scale(1)", transition: "transform .5s ease" }}
+        />
       </Box>
       <Box
         sx={(theme) => ({
@@ -64,6 +77,7 @@ export default function ProjectCard({ proj, ...rest }) {
           background: theme.util.gx2(theme.colors.gxt1, theme.colors.gxt2),
         })}
       >
+        {/* Badges */}
         <FlexMotion
           variants={badgeBg}
           sx={(theme) => ({
@@ -72,8 +86,8 @@ export default function ProjectCard({ proj, ...rest }) {
             width: "100%",
             justifyContent: "center",
             flexWrap: "wrap",
-            py: 4,
-            px: 5,
+            py: 3,
+            px: 4,
             background: theme.util.gx2(theme.colors.gxt2, theme.colors.gxt1),
           })}
         >
@@ -81,13 +95,13 @@ export default function ProjectCard({ proj, ...rest }) {
             <BadgeMotion
               variants={badgeMotion}
               key={idx}
-              sx={theme=>({
-                lineHeight: 2,
+              sx={(theme) => ({
+                lineHeight: [1.2, 1.5, 2],
                 fontSize: 1,
                 fontWeight: 200,
                 color: "primary",
-                mx: 3,
-                my: 3,
+                mx: [1, 1, 3, 1, 2],
+                my: [1, 1, 3, 1, 2],
                 pt: 2,
                 pb: 1,
                 boxShadow: "card",
@@ -105,29 +119,59 @@ export default function ProjectCard({ proj, ...rest }) {
         variant="subtitle"
         sx={{
           color: "textAlt",
-          px: 4,
+          px: [3, 3, 4],
           mt: -4,
           position: "relative",
           fontWeight: 700,
-          fontSize: [2, 3, 4],
+          fontSize: [4, 4, 5],
           transition: "color .2s ease",
         }}
       >
         {proj.title}
       </Heading>
-      <Box sx={{ p: 4, pt: 2 }}>
-        <p sx={{ mb: 4, color: "textAlt" }}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi nemo voluptate aliquam dolorum possimus eveniet.
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate fuga consequuntur magnam pariatur ullam rem minus.
-        </p>
-        <Flex sx={{ justifyContent: "space-between", alignItems: "end" }}>
-          <ButtonMotion as="a" href={proj.git} target="_blank" variant="outline" variants={buttonMotion} whileHover="hover" whileTap="tap" sx={{ height: 42 }}>
+      {/*Project Description */}
+      <Box
+        sx={{
+          px: [3, 3, 4],
+          pb: [3, 3, 4],
+          pt: 1,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+          flexGrow:1
+        }}
+      >
+        {proj.description &&
+          proj.description.split("\n").map((par, idx) => (
+            <p key={idx} sx={{my:2, color: "textAlt" }}>
+              {par}
+            </p>
+          ))}
+
+        <Flex sx={{ justifyContent: "space-between", alignItems: "end", mt: 4 }}>
+          <ButtonMotion
+            as="a"
+            href={proj.git}
+            target="_blank"
+            variant="outline"
+            variants={buttonMotion}
+            whileHover="hover"
+            whileTap="tap"
+            sx={{ height: 42 }}
+          >
             <FaGithub /> <span sx={{ mt: 1, ml: 1 }}> Code</span>
           </ButtonMotion>
-          <ButtonMotion as="a" href={proj.web} target="_blank" variant="cta" variants={buttonMotion} whileHover="hover" whileTap="tap" sx={{}}>
-            <span sx={{ fontSize: 1, fontWeight: 900, mt: 1, p: 1, letterSpacing: 0 }}> Live Demo</span>
+          <ButtonMotion
+            as="a"
+            href={proj.web}
+            target="_blank"
+            variant="cta"
+            variants={buttonMotion}
+            whileHover="hover"
+            whileTap="tap"
+            sx={{}}
+          >
+            <span sx={{ fontSize: 1, fontWeight: 900, mt: 1, p: 1, letterSpacing: 0, lineHeight: 1 }}> Live Demo</span>
           </ButtonMotion>
         </Flex>
       </Box>

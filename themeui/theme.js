@@ -18,6 +18,7 @@ const colors = {
   greenLighter: "#90e9ce",
   green: "#33d6a6",
   greenDarker: "#089168",
+  greenDarkest: "#056145",
   cyan: "#5bc0de",
   blue: "#338eda",
   purple: "#a633d6",
@@ -30,10 +31,10 @@ const colors = {
 const theme = {
   breakpoints: [32, 48, 64, 96, 128].map((w) => `${w}em`),
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontSizes: [12, 16, 20, 24, 32, 48, 64, 96, 128, 160, 192],
+  fontSizes: [10, 16, 20, 24, 32, 48, 64, 96, 128, 160, 192],
   config: {
     initialColorModeName: "dark",
-    useColorSchemeMediaQuery: true,
+    useColorSchemeMediaQuery: false,
   },
   colors: {
     ...colors,
@@ -66,7 +67,7 @@ const theme = {
         border: colors.smoke,
         placeholder: colors.muted,
         secondary: colors.slate,
-        primary: colors.greenDarker,
+        primary: colors.greenDarkest,
         muted: colors.muted,
         accent: colors.blue,
         gx1: colors.white,

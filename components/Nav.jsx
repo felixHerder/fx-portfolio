@@ -81,7 +81,7 @@ export default function Nav() {
         left: "50%",
         transform: "translateX(-50%)",
         transition: "background .3s ease, box-shadow .3s ease",
-        background: isScrolled ? theme.util.gx(theme.colors.gx1, theme.colors.gx2) : "transparent",
+        background: isScrolled ?theme.colors.elevated : "transparent",
         zIndex: 1,
         boxShadow: isScrolled ? "none" : "none",
         "&:hover": { boxShadow: isScrolled ? "card" : "none" },

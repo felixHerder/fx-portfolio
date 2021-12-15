@@ -31,6 +31,7 @@ export default function Aside() {
         position: "fixed",
         left: 0,
         top: 0,
+        zIndex:99,
         height: "100vh",
         width: "auto",
         px:1,
