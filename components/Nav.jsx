@@ -60,9 +60,9 @@ export default function Nav() {
   //Overwrite default smooth scrolling in order to offses nav height
   const handleNavClick= (e)=>{
     e.preventDefault();
-    const targetOffset = document.getElementById(e.target.hash.slice(1)).offsetTop;
+    const targetOffset = document.getElementById(e.currentTarget.hash.slice(1)).offsetTop;
     const navHeight = document.getElementById('nav').clientHeight;
-    console.log(e.target.hash.slice(1),navHeight); 
+    // console.log(e.currentTarget.hash.slice(1),navHeight); 
     window.scrollTo(0,targetOffset-navHeight);
   }
 
@@ -84,7 +84,7 @@ export default function Nav() {
         background: isScrolled ?theme.colors.elevated : "transparent",
         zIndex: 1,
         boxShadow: isScrolled ? "none" : "none",
-        "&:hover": { boxShadow: isScrolled ? "card" : "none" },
+        "&:hover": { boxShadow: isScrolled ? "small" : "none" },
       })}
     >
       <motion.div id="nav"
@@ -102,7 +102,7 @@ export default function Nav() {
           alignItems: "center",
         }}
       >
-        <motion.a href="#home" whileTap={{ scale: 0.9 }} animate={{ scale: 1 }} sx={{ variant: "styles.a", lineHeight: 0 }}>
+        <motion.a href="#home" onClick={handleNavClick} whileTap={{ scale: 0.9 }} animate={{ scale: 1 }} sx={{ variant: "styles.a", lineHeight: 0 }}>
           <FxLogo
             width="1em"
             height="1em"

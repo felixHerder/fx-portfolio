@@ -11,7 +11,7 @@ export default function Index() {
   return (
     <ThemeProvider theme={theme}>
       <Head>
-        <title> Felix | Frontend Developer</title>
+        <title> Felix | Frontend Web Developer</title>
       </Head>
       <div sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
         <Nav />

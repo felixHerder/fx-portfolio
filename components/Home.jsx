@@ -1,14 +1,15 @@
-import { Heading, Container, Text, Box, Button } from "theme-ui";
+import { Text, Box, Button } from "theme-ui";
 import { motion } from "framer-motion";
 import React from "react";
 import { BsChevronDown } from "react-icons/bs";
+
 export default function Home() {
   const handleNavClick = (e) => {
     e.preventDefault();
-    console.log(e.target);
-    const targetOffset = document.getElementById(e.target.hash.slice(1)).offsetTop;
+    // console.log(e.target);
+    const targetOffset = document.getElementById(e.currentTarget.hash.slice(1)).offsetTop;
     const navHeight = document.getElementById("nav").clientHeight;
-    console.log(e.target.hash.slice(1), navHeight);
+    // console.log(e.target.hash.slice(1), navHeight);
     window.scrollTo(0, targetOffset - navHeight);
   };
   const ButtonMotion = motion(Button, { forwardMotionProps: true });
@@ -44,7 +45,15 @@ export default function Home() {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8 }}
-          sx={{ variant: "text.title", fontSize: [3, 4, 5], color: "secondary", fontWeight: "100", fontFamily: "body", letterSpacing: "-0.062em", my: 0 }}
+          sx={{
+            variant: "text.title",
+            fontSize: [3, 4, 5],
+            color: "secondary",
+            fontWeight: "100",
+            fontFamily: "body",
+            letterSpacing: "-0.062em",
+            my: 0,
+          }}
         >
           a frontend web developer
         </motion.h2>
@@ -102,8 +111,29 @@ export default function Home() {
           </BoxMotion>
         </Box>
       </Box>
-      <BoxMotion initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ duration: 1, delay: 1 }} sx={{ position: "absolute", bottom: 0 }}>
-        <BsChevronDown sx={{ display: "block", width: 24, height: 24, color: "placeholder", mb: 4 }} />
+      <BoxMotion
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1, transition: { delay: 1.1 } }}
+        sx={{ position: "absolute", bottom: 0 }}
+      >
+        <ButtonMotion
+          as="a"
+          href="#work"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={handleNavClick}
+          variant="primary"
+          sx={(theme) => ({
+            width: "max-content",
+            color: "secondary",
+            bg: "transparent",
+            mb: 4,
+            pt: 2,
+            pb: 1,
+          })}
+        >
+          <BsChevronDown sx={{ width: "24px", height: "24px" }} />
+        </ButtonMotion>
       </BoxMotion>
     </section>
   );

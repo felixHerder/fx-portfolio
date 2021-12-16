@@ -23,7 +23,7 @@ export default function Work() {
   return (
     <section id="work" sx={(theme) => ({ bg: "elevated" })}>
       <Container variant="wide" sx={{ px: [3, 5], display: "flex", flexDirection: "column" }}>
-        <Flex sx={{ justifyContent: "space-between", alignItems: "end", py: [3, 4, 5, 5, 6], color: "placeholder" }}>
+        <Flex sx={{ justifyContent: "space-between", alignItems: "end", py: [4, 4, 5, 5, 5], color: "placeholder" }}>
           <Heading
             variant="ultratitle"
             sx={(theme) => ({ ...theme.util.gxText(theme.colors.text, theme.colors.secondary), lineHeight: 0.8 })}
@@ -46,7 +46,7 @@ export default function Work() {
           ))}
         </Flex>
 
-        <Grid columns={[null, null, 1, 2]} gap={5} sx={{ my: 3, mb: 5 }}>
+        <Grid columns={[null, null, 1, 2]} gap={5} sx={{ my: 2, mb: 5, alignItems:"flex-start" }}>
           {[
             {
               title: "Feudal Swag",
@@ -54,6 +54,7 @@ export default function Work() {
               isrc: FeudalSwagImg,
               git: "https://github.com/felixHerder/feudal-swag",
               web: "https://feudalswag.felixherder.space/shop",
+              description:"E-commerce app for a fictional medieval clothing store built using firebase populated with mockdata. \n Frontend is react with chakra-ui build with cra. Backend is firebase for authorization with email or google and firestore db for storing item and user data. \n Redux and react-router is used heavily with url search params for preserving navigation history and application state on refresh/reload. \n Firestore db queries are cached in memory as much as possible for a smoother ux and to decrease db load. Frontend is hosted on netlify."
             },
             {
               title: "Hyperion Mission Control",
@@ -61,6 +62,7 @@ export default function Work() {
               isrc: HyperionImg,
               git: "https://github.com/felixHerder/hyperion-mc",
               web: "https://hyperion.felixherder.space",
+              description: "Admin Control Panel for a rocket launch scheduling system using data from api.spacexdata.com. \n Frontend is react with typescript and material-ui using a custom made webpack and babel config, complete with dev and prod ready npm scripts. \n Backend is node with express using mongoose to connect to a atlas mongodb server. The frontend static files are also served from this express server.  \n Hosted on an aws ec2 private server instance using a nginx reverse proxy."
             },
             {
               title: "Swag Box",
@@ -68,7 +70,7 @@ export default function Work() {
               isrc: SwagboxImg,
               git: "https://github.com/felixHerder/swagbox-app",
               web: "https://swagbox.felixherder.space",
-              description:"Dashboard for the Clarifai image clothing clasifier. Please be patient white the heroku backend spins up. \n Frontend is react built with create-react-app and tachyons. Backend is build with node and express with postgresql for user auth and redis for jwt authentication \n The submited image url is sent to the express backend which sends a post request to the Clarifai api. The frontend is hosted on github pages and the backend on heroku."
+              description:"Dashboard for the Clarifai image clothing clasifier. Please be patient while the heroku backend spins up. \n Frontend is react built with create-react-app and tachyons. Backend is build with node and express with postgresql for user auth and redis for jwt authentication \n The submited image url is sent to the express backend which sends a post request to the Clarifai api. The frontend is hosted on github pages and the backend on heroku."
             },
             {
               title: "Pokedex Cards",
