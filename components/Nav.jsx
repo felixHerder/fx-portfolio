@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid,Flex } from "theme-ui";
+import { Grid, Flex } from "theme-ui";
 import { motion } from "framer-motion";
 import FxLogo from "../assets/fx_outline.svg";
 import ColorSwitcher from "../components/ColorSwitcher";
@@ -26,8 +26,8 @@ export default function Nav() {
   useEffect(() => {
     const sectionIds = ["home", "work", "about", "contact"];
     const sectionNodes = sectionIds.map((s) => document.getElementById(s));
-    const navHeight = document.getElementById('nav').clientHeight;
-    const offsets = sectionNodes.map((s) => s.offsetTop-window.innerHeight/3);
+    const navHeight = document.getElementById("nav").clientHeight;
+    const offsets = sectionNodes.map((s) => s.offsetTop - window.innerHeight / 3);
 
     const handleScroll = () => {
       //scroll spy functionality, sets active section id
@@ -56,15 +56,16 @@ export default function Nav() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  
+
   //Overwrite default smooth scrolling in order to offses nav height
-  const handleNavClick= (e)=>{
+  const handleNavClick = (e) => {
     e.preventDefault();
+    // console.log(e.currentTarget);
     const targetOffset = document.getElementById(e.currentTarget.hash.slice(1)).offsetTop;
-    const navHeight = document.getElementById('nav').clientHeight;
-    // console.log(e.currentTarget.hash.slice(1),navHeight); 
-    window.scrollTo(0,targetOffset-navHeight);
-  }
+    const navHeight = document.getElementById("nav").clientHeight;
+    // console.log(e.currentTarget.hash.slice(1),navHeight);
+    window.scrollTo(0, targetOffset - navHeight);
+  };
 
   //log active section
   // useEffect(() => {
@@ -73,21 +74,22 @@ export default function Nav() {
 
   //render
   return (
-    <nav 
+    <nav
       sx={(theme) => ({
-        zIndex:99,
+        zIndex: 99,
         width: "100%",
         position: "fixed",
         left: "50%",
         transform: "translateX(-50%)",
         transition: "background .3s ease, box-shadow .3s ease",
-        background: isScrolled ?theme.colors.elevated : "transparent",
+        background: isScrolled ? theme.colors.elevated : "transparent",
         zIndex: 1,
         boxShadow: isScrolled ? "none" : "none",
         "&:hover": { boxShadow: isScrolled ? "small" : "none" },
       })}
     >
-      <motion.div id="nav"
+      <motion.div
+        id="nav"
         variants={nav}
         initial="hidden"
         animate="visible"
@@ -95,14 +97,20 @@ export default function Nav() {
           variant: "layout.wide",
           py: [2, 3],
           my: isScrolled ? 0 : [3, 4],
-          px:[3,4,5],
+          px: [3, 4, 5],
           transition: "margin .2s ease",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <motion.a href="#home" onClick={handleNavClick} whileTap={{ scale: 0.9 }} animate={{ scale: 1 }} sx={{ variant: "styles.a", lineHeight: 0 }}>
+        <motion.a
+          href="#home"
+          onClick={handleNavClick}
+          whileTap={{ scale: 0.9 }}
+          animate={{ scale: 1 }}
+          sx={{ variant: "styles.a", lineHeight: 0 }}
+        >
           <FxLogo
             width="1em"
             height="1em"
@@ -114,7 +122,15 @@ export default function Nav() {
             })}
           />
         </motion.a>
-        <Flex sx={{ alignItems: "center", justifyItems: "center", textTransform: "lowercase", fontWeight: 500, fontSize: [0, 1, 2],"& > *":{ml:[3,4,5] } }}
+        <Flex
+          sx={{
+            alignItems: "center",
+            justifyItems: "center",
+            textTransform: "lowercase",
+            fontWeight: 500,
+            fontSize: [0, 1, 2],
+            "& > *": { ml: [3, 4, 5] },
+          }}
         >
           {["work", "about", "contact"].map((sect) => (
             <motion.a
@@ -124,12 +140,12 @@ export default function Nav() {
               variants={link}
               whileHover={{ y: 2 }}
               whileTap={{ scale: 0.85 }}
-              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden", fontWeight:200}}
+              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden", fontWeight: 200 }}
             >
               {sect}
             </motion.a>
           ))}
-          <ColorSwitcher sx={{ml:[3,4,5] }}/>
+          <ColorSwitcher sx={{ ml: [3, 4, 5] }} />
         </Flex>
       </motion.div>
     </nav>

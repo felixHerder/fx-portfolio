@@ -95,7 +95,7 @@ export default function Home() {
                 color: "secondary",
                 borderColor: "secondary",
                 textDecoration: "none",
-                fontSize: 0,
+                fontSize: ["8px","9px","10px"],
                 fontWeight: 900,
                 mt: 1,
                 pt: 2,
@@ -128,11 +128,11 @@ export default function Home() {
             color: "secondary",
             bg: "transparent",
             mb: 4,
-            pt: 2,
-            pb: 1,
+            pt: 3,
+            pb: 2,
           })}
         >
-          <BsChevronDown sx={{ width: "24px", height: "24px" }} />
+          <BsChevronDown sx={{ width: 32, height: 32 }} />
         </ButtonMotion>
       </BoxMotion>
     </section>

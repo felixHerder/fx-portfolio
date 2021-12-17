@@ -4,8 +4,9 @@ import theme from "../themeui/theme";
 import { ThemeProvider } from "theme-ui";
 import Home from "../components/Home";
 import Nav from "../components/Nav";
-import Aside from "../components/Aside"
-import Work from "../components/Work"
+import Aside from "../components/Aside";
+import Work from "../components/Work";
+import About from "../components/About";
 
 export default function Index() {
   return (
@@ -19,10 +20,8 @@ export default function Index() {
         <main sx={{ width: "100%" }}>
           <Home />
           <Work />
-          <section id="about" sx={{ height: "800px" }}>
-            About
-          </section>
-          <section id="contact" sx={{ height: "800px" }}>
+          <About />
+          <section id="contact" sx={{ height: "800px",bg:"sunken" }}>
             Contact
           </section>
         </main>

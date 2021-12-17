@@ -159,7 +159,6 @@ export default function ProjectCard({ proj, ...rest }) {
         <Box
           sx={(theme) => ({
             height: [200, 250, 300, 250, 320],
-
             width: "100%",
             height: isHidden ? "60px" : "0px",
             position: "absolute",
@@ -173,7 +172,7 @@ export default function ProjectCard({ proj, ...rest }) {
         ></Box>
       </Box>
       {/* Read more button */}
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mt: -2, zIndex: 99 }}>
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mt: -2, }}>
         <ButtonMotion
           title={isHidden ? "Show more" : "Show less"}
           variant="primary"
