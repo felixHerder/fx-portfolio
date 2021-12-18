@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, Heading, Container, Box, Flex, } from "theme-ui";
+import { Text, Heading, Container, Box, Flex } from "theme-ui";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiMailSendFill } from "react-icons/ri";
 
@@ -62,7 +62,11 @@ export default function Contact() {
                   height: [36, null, 48],
                 }}
               />
-              <a href={link} target="blank" sx={{ variant: "styles.a", fontSize: [2, null, 3], mx: 3, pt: 2 }}>
+              <a
+                href={link}
+                target="blank"
+                sx={{ variant: "styles.a", fontSize: [2, null, 3], mx: 3, pt: 2 }}
+              >
                 {desc}
               </a>
             </Box>

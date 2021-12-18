@@ -98,7 +98,7 @@ export default function Nav() {
           py: [2, 3],
           my: isScrolled ? 0 : [3, 4],
           px: [3, 4, 5],
-          transition: "margin .2s ease",
+          transition: "margin 0.2s ease",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",

@@ -51,7 +51,7 @@ export default function ProjectCard({ proj, ...rest }) {
         p: [0, 0],
         bg: "elevated",
         border: "1px solid",
-        borderColor: "transparent",
+        borderColor: "elevated",
         transition: "border-color .2s ease",
         "&:hover,&:focus": { borderColor: "border" },
         "&:hover #proj-title,&:focus #proj-title": { color: "primary" },
@@ -101,7 +101,7 @@ export default function ProjectCard({ proj, ...rest }) {
               key={idx}
               sx={(theme) => ({
                 lineHeight: [1.2, 1.5, 2],
-                fontSize: 1,
+                fontSize: ["14px", 1],
                 fontWeight: 400,
                 color: "primary",
                 mx: [1, 1, 3, 1, 2],
@@ -138,7 +138,6 @@ export default function ProjectCard({ proj, ...rest }) {
       <Box
         sx={{
           px: [3, 3, 4],
-          bg: "transparent",
           pt: 2,
           display: "flex",
           flexDirection: "column",
@@ -193,7 +192,7 @@ export default function ProjectCard({ proj, ...rest }) {
         </ButtonMotion>
       </Box>
       {/* Button links */}
-      <Flex sx={{bg:"transparent", justifyContent: "space-between", alignItems: "end", pt: 1, pb: [3, 3, 4], px: [3, 3, 4] }}>
+      <Flex sx={{ justifyContent: "space-between", alignItems: "end", pt: 1, pb: [3, 3, 4], px: [3, 3, 4] }}>
         <ButtonMotion
           as="a"
           href={proj.git}
