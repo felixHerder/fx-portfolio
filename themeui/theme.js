@@ -8,7 +8,7 @@ const colors = {
   steel: "#273444",
   slate: "#3c4858",
   muted: "#8492a6",
-  smokedarker: "#beccda",
+  smokedarker: "#ced9e3",
   smoke: "#e0e6ed",
   snow: "#eef1f6",
   white: "#fcfcfc",
@@ -380,6 +380,7 @@ const theme = {
   scrollSpy: {
     hidden: {
       color: "muted",
+      fontWeight:"light",
       textDecoration: "none",
       transition: "all .2s ease",
       position: "relative",

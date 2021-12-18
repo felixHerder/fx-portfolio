@@ -54,17 +54,17 @@ export default function Aside() {
       }}
     >
       <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
-        <motion.a href="#" whileTap={{ scale: 0.85 }}>
+        <motion.a href="https://github.com/felixHerder" target="blank" whileTap={{ scale: 0.85 }}>
           <FaGithub />
         </motion.a>
       </MotionIconButton>
       <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
-        <motion.a href="#" whileTap={{ scale: 0.85 }}>
+        <motion.a href="https://www.linkedin.com/in/felix-baciu-427183189/" target="blank" whileTap={{ scale: 0.85 }}>
           <FaLinkedin />
         </motion.a>
       </MotionIconButton>
       <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
-        <motion.a href="#" whileTap={{ scale: 0.85 }}>
+        <motion.a href="mailto:felixbaciu@gmail.com" target="blank" whileTap={{ scale: 0.85 }}>
           <RiMailSendFill />
         </motion.a>
       </MotionIconButton>

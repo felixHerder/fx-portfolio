@@ -6,7 +6,7 @@ import { SiJavascript, SiCsswizardry, SiHtml5, SiWebpack, SiBabel, SiTypescript,
 export default function About() {
   return (
     <section id="about" sx={(theme) => ({ bg: "background" })}>
-      <Container variant="wide" sx={{ px: [3, 5], display: "flex", flexDirection: "column" }}>
+      <Container variant="wide" sx={{ px: [3, 5], py: [3, 3, 3, 4], display: "flex", flexDirection: "column" }}>
         {/* Title */}
         <Flex
           sx={{
@@ -43,11 +43,11 @@ export default function About() {
           </Box>
         </Flex>
         {/* About story */}
-        <Grid columns={[null, null, 1, 2]} gap={[3, 3, 3, 4, 5]} sx={{ mb: [4, 4, 5] }}>
-          <Box sx={{ px: 3, color: "textAlt", fontSize: [1, 1, 2, 1, 2] }}>
+        <Grid columns={[null, null, 1, 2]} gap={[3, 3, 3, 4, 5]} sx={{ mb: [3, 3, 4] }}>
+          <Box sx={{ px: 3, color: "textAlt", fontSize: [1, 1, 2, 2, 2] }}>
             <p>
-              I am a frontend web developer with a strong background in 3d graphics and motion graphic design having worked a number
-              of years in the architectural visualization industry.
+              I am a frontend web developer with a strong background in 3d graphics and motion graphic design having worked a
+              number of years in the architectural visualization industry.
             </p>
             <p>
               During this time I always found myself writing a lot of scripts in whatever api was available in order to automate
@@ -99,7 +99,7 @@ export default function About() {
                       mb: 0,
                     }}
                   />
-                  <Text sx={{ display: "block", pt: 2, fontSize: [1, 1, 2], textAlign: "center" }}>{desc}</Text>
+                  <Text sx={{ display: "block", pt: 2, fontSize: ["14px", 1, 2], textAlign: "center" }}>{desc}</Text>
                 </Box>
               ))}
             </Grid>

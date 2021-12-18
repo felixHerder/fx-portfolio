@@ -127,8 +127,8 @@ export default function Nav() {
             alignItems: "center",
             justifyItems: "center",
             textTransform: "lowercase",
-            fontWeight: 500,
-            fontSize: [0, 1, 2],
+            fontSize: [1, 1, 2],
+            lineHeight:1,
             "& > *": { ml: [3, 4, 5] },
           }}
         >
@@ -140,7 +140,7 @@ export default function Nav() {
               variants={link}
               whileHover={{ y: 2 }}
               whileTap={{ scale: 0.85 }}
-              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden", fontWeight: 200 }}
+              sx={{ variant: activeSection === sect ? "scrollSpy.active" : "scrollSpy.hidden", }}
             >
               {sect}
             </motion.a>

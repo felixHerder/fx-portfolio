@@ -1,12 +1,14 @@
 import React from "react";
 import Head from "next/head";
 import theme from "../themeui/theme";
-import { ThemeProvider } from "theme-ui";
+import { ThemeProvider, Text } from "theme-ui";
 import Home from "../components/Home";
 import Nav from "../components/Nav";
 import Aside from "../components/Aside";
 import Work from "../components/Work";
 import About from "../components/About";
+import Contact from "../components/Contact";
+import { FaCentercode } from "react-icons/fa";
 
 export default function Index() {
   return (
@@ -21,11 +23,21 @@ export default function Index() {
           <Home />
           <Work />
           <About />
-          <section id="contact" sx={{ height: "800px",bg:"sunken" }}>
-            Contact
-          </section>
+          <Contact />
         </main>
-        <footer sx={{ width: "100%" }}>Footer</footer>
+        <footer
+          sx={(theme) => ({
+            width: "100%",
+            textAlign: "center",
+            lineHeight: 1.3,
+            fontSize: "14px",
+            color: "textTer",
+            fontWeight: "light",
+            bg: "elevated",
+          })}
+        >
+          <p sx={{ my: 2 }}>Felix Baciu - 2022</p>
+        </footer>
       </div>
     </ThemeProvider>
   );
