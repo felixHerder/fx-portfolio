@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import {  Card, Heading, Button, Box, Flex, Badge, } from "theme-ui";
+import { Card, Heading, Button, Box, Flex, Badge } from "theme-ui";
 import { FaGithub } from "react-icons/fa";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { motion } from "framer-motion";
@@ -53,7 +53,6 @@ export default function ProjectCard({ proj, ...rest }) {
         border: "1px solid",
         borderColor: "transparent",
         transition: "border-color .2s ease",
-        // "&:hover,&:focus": { borderColor: alpha("primary", 0.5) },
         "&:hover,&:focus": { borderColor: "border" },
         "&:hover #proj-title,&:focus #proj-title": { color: "primary" },
         "&:hover #img-box,&:focus #img-box": { transform: "scale(1.05)" },
@@ -139,6 +138,7 @@ export default function ProjectCard({ proj, ...rest }) {
       <Box
         sx={{
           px: [3, 3, 4],
+          bg: "transparent",
           pt: 2,
           display: "flex",
           flexDirection: "column",
@@ -173,7 +173,7 @@ export default function ProjectCard({ proj, ...rest }) {
         ></Box>
       </Box>
       {/* Read more button */}
-      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mt: -2, }}>
+      <Box sx={{ width: "100%", display: "flex", justifyContent: "center", mt: -2 }}>
         <ButtonMotion
           title={isHidden ? "Show more" : "Show less"}
           variant="primary"
@@ -193,7 +193,7 @@ export default function ProjectCard({ proj, ...rest }) {
         </ButtonMotion>
       </Box>
       {/* Button links */}
-      <Flex sx={{ justifyContent: "space-between", alignItems: "end", pt: 1, pb: [3, 3, 4], px: [3, 3, 4] }}>
+      <Flex sx={{bg:"transparent", justifyContent: "space-between", alignItems: "end", pt: 1, pb: [3, 3, 4], px: [3, 3, 4] }}>
         <ButtonMotion
           as="a"
           href={proj.git}

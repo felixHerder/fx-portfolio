@@ -552,7 +552,7 @@ theme.util.gx = (from, to) => `radial-gradient(
 theme.util.gx2 = (from, to) => `linear-gradient(
   to bottom,
   ${theme.util.cx(from)},
-  ${theme.util.cx(to)} 99%
+  ${theme.util.cx(to)}
 )`;
 theme.util.gxText = (from, to) => ({
   color: theme.util.cx(to),
