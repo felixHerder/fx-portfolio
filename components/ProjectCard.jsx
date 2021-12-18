@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Grid, Card, Heading, Button, Box, Flex, Badge, Link } from "theme-ui";
+import {  Card, Heading, Button, Box, Flex, Badge, } from "theme-ui";
 import { FaGithub } from "react-icons/fa";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 import { motion } from "framer-motion";
@@ -53,7 +53,8 @@ export default function ProjectCard({ proj, ...rest }) {
         border: "1px solid",
         borderColor: "transparent",
         transition: "border-color .2s ease",
-        "&:hover,&:focus": { borderColor: alpha("primary", 0.5) },
+        // "&:hover,&:focus": { borderColor: alpha("primary", 0.5) },
+        "&:hover,&:focus": { borderColor: "border" },
         "&:hover #proj-title,&:focus #proj-title": { color: "primary" },
         "&:hover #img-box,&:focus #img-box": { transform: "scale(1.05)" },
       }}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Grid, Flex } from "theme-ui";
+import { Flex } from "theme-ui";
 import { motion } from "framer-motion";
 import FxLogo from "../assets/fx_outline.svg";
 import ColorSwitcher from "../components/ColorSwitcher";

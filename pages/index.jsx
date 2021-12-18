@@ -1,14 +1,13 @@
 import React from "react";
 import Head from "next/head";
 import theme from "../themeui/theme";
-import { ThemeProvider, Text } from "theme-ui";
+import { ThemeProvider, } from "theme-ui";
 import Home from "../components/Home";
 import Nav from "../components/Nav";
 import Aside from "../components/Aside";
 import Work from "../components/Work";
 import About from "../components/About";
 import Contact from "../components/Contact";
-import { FaCentercode } from "react-icons/fa";
 
 export default function Index() {
   return (

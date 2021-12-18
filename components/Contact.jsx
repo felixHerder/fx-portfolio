@@ -1,8 +1,7 @@
 import React from "react";
-import { Grid, Card, Text, Heading, Container, Box, Flex, Badge } from "theme-ui";
+import { Text, Heading, Container, Box, Flex, } from "theme-ui";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiMailSendFill } from "react-icons/ri";
-import FxLogo from "../assets/fx_outline.svg";
 
 export default function Contact() {
   return (

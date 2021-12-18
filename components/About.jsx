@@ -1,7 +1,7 @@
 import React from "react";
-import { Grid, Card, Text, Heading, Container, Box, Flex, Badge } from "theme-ui";
+import { Grid, Text, Heading, Container, Box, Flex,  } from "theme-ui";
 import { FaReact, FaSass } from "react-icons/fa";
-import { SiJavascript, SiCsswizardry, SiHtml5, SiWebpack, SiBabel, SiTypescript, SiNodedotjs } from "react-icons/si";
+import { SiJavascript, SiCsswizardry, SiHtml5, SiWebpack, SiTypescript, SiNodedotjs } from "react-icons/si";
 
 export default function About() {
   return (
