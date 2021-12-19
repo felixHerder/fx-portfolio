@@ -40,7 +40,7 @@ export default function Contact() {
           }}
         >
           {[
-            [FaLinkedin, "Linkedin", "https://www.linkedin.com/in/felix-baciu-427183189/"],
+            [FaLinkedin, "Linkedin", "https://www.linkedin.com/in/felixbaciu"],
             [FaGithub, "Github", "https://github.com/felixHerder"],
             [RiMailSendFill, "felixbaciu@gmail.com", "mailto:felixbaciu@gmail.com"],
           ].map(([Icon, desc, link], idx) => (

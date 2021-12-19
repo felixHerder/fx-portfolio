@@ -59,7 +59,7 @@ export default function Aside() {
         </motion.a>
       </MotionIconButton>
       <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
-        <motion.a href="https://www.linkedin.com/in/felix-baciu-427183189/" target="blank" whileTap={{ scale: 0.85 }}>
+        <motion.a href="https://www.linkedin.com/in/felixbaciu/" target="blank" whileTap={{ scale: 0.85 }}>
           <FaLinkedin />
         </motion.a>
       </MotionIconButton>
