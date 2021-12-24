@@ -53,18 +53,18 @@ export default function Aside() {
         "& svg": { color: "muted", width: "100%", height: "100%" },
       }}
     >
-      <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
+      <MotionIconButton variants={icon} whileHover={{ x: 3 }} title="Link to Github Profile" >
         <motion.a href="https://github.com/felixHerder" target="blank" whileTap={{ scale: 0.85 }}>
           <FaGithub />
         </motion.a>
       </MotionIconButton>
-      <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
-        <motion.a href="https://www.linkedin.com/in/felixbaciu/" target="blank" whileTap={{ scale: 0.85 }}>
+      <MotionIconButton variants={icon} whileHover={{ x: 3 }} title="Link to Linkedin Profile">
+        <motion.a href="https://www.linkedin.com/in/felixbaciu/" target="blank"   whileTap={{ scale: 0.85 }}>
           <FaLinkedin />
         </motion.a>
       </MotionIconButton>
-      <MotionIconButton variants={icon} whileHover={{ x: 3 }}>
-        <motion.a href="mailto:felixbaciu@gmail.com" target="blank" whileTap={{ scale: 0.85 }}>
+      <MotionIconButton variants={icon} whileHover={{ x: 3 }} title="E-mail to felixbaciu@gmail.com">
+        <motion.a href="mailto:felixbaciu@gmail.com" target="blank"  whileTap={{ scale: 0.85 }}>
           <RiMailSendFill />
         </motion.a>
       </MotionIconButton>
