@@ -2,7 +2,7 @@ import React from "react";
 import { Text, Heading, Container, Box, Flex } from "theme-ui";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiMailSendFill } from "react-icons/ri";
-import HeadShot from "../public/fb_headshot_96.jpg";
+import HeadShot from "../public/fb_headshot.jpg";
 import Image from "next/image";
 
 export default function Contact() {
