@@ -2,6 +2,8 @@ import React from "react";
 import { Text, Heading, Container, Box, Flex } from "theme-ui";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { RiMailSendFill } from "react-icons/ri";
+import HeadShot from "../public/fb_headshot_96.jpg";
+import Image from "next/image";
 
 export default function Contact() {
   return (
@@ -58,24 +60,30 @@ export default function Contact() {
                 title={desc}
                 sx={{
                   color: "textAlt",
-                  width: [36, null, 48],
-                  height: [36, null, 48],
+                  width: [24, null, 36],
+                  height: [24, null, 36],
                 }}
               />
-              <a
-                href={link}
-                target="blank"
-                sx={{ variant: "styles.a", fontSize: [2, null, 3], mx: 3, pt: 2 }}
-              >
+              <a href={link} target="blank" sx={{ variant: "styles.a", fontSize: [1, null, 2], mx: 2, pt: 2 }}>
                 {desc}
               </a>
             </Box>
           ))}
-        </Flex>
+          {/* Profile Image */}
+          <Image
+            src={HeadShot}
+            alt="Felix Baciu Photo"
+            layout="fixed"
+            placeholder="blur"
+            width="96px"
+            height="96px"
+            sx={{ borderRadius: "50%", mx: "auto", }}
+            
+          />
         <Text
           as="h5"
           sx={(theme) => ({
-            mt: 5,
+            mt: 3,
             mb: 4,
             textAlign: "center",
             fontWeight: "light",
@@ -87,6 +95,7 @@ export default function Contact() {
         >
           Thanks for visiting!
         </Text>
+        </Flex>
       </Container>
     </section>
   );

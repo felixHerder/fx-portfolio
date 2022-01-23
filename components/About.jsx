@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Text, Heading, Container, Box, Flex,  } from "theme-ui";
+import { Grid, Text, Heading, Container, Box, Flex } from "theme-ui";
 import { FaReact, FaSass } from "react-icons/fa";
 import { SiJavascript, SiCsswizardry, SiHtml5, SiWebpack, SiTypescript, SiNodedotjs } from "react-icons/si";
+
 
 export default function About() {
   return (
@@ -12,6 +13,7 @@ export default function About() {
           sx={{
             justifyContent: "space-between",
             alignItems: "center",
+            flexDirection: ["column", "row"],
             pt: [4, null, null, null, 5],
             pb: [3, null, null, null, 4],
             color: "placeholder",
@@ -27,14 +29,15 @@ export default function About() {
           >
             About
           </Heading>
-          {/* About subtitle */}
           <Box>
+            {/* About subtitle */}
             <Text
               as="h3"
               color="primary"
               variant="title"
               sx={(theme) => ({
                 fontSize: [4, 4, 4, 5, 6],
+                ml: 3,
                 ...theme.util.gxText(theme.colors.gxc1, theme.colors.gxc2),
               })}
             >
