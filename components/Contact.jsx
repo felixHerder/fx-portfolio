@@ -75,8 +75,8 @@ export default function Contact() {
             alt="Felix Baciu Photo"
             layout="fixed"
             placeholder="blur"
-            width="96px"
-            height="96px"
+            width="60px"
+            height="60px"
             sx={{ borderRadius: "50%", mx: "auto", }}
             
           />

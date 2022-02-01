@@ -6,7 +6,7 @@ import "@fontsource/pt-sans/700.css";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import { useEffect } from "react";
-import * as gtag from '../lib/gtag'
+import * as gtag from "../lib/gtag";
 
 function MyApp({ Component, pageProps }) {
   //for google analytics
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-    {/* for google analytics */}
+      {/* for google analytics */}
       <Script strategy="afterInteractive" src={`https://www.googletagmanager.com/gtag/js?id=${gtag.GA_ID}`} />
       <Script
         id="gtag-init"
@@ -39,7 +39,7 @@ function MyApp({ Component, pageProps }) {
           `,
         }}
       />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }

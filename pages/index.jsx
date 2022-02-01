@@ -35,7 +35,7 @@ export default function Index() {
             bg: "elevated",
           })}
         >
-          <p sx={{ my: 2 }}>Felix Baciu - 2022</p>
+          <p sx={{ my: 3 }}>Felix Baciu - 2022</p>
         </footer>
       </div>
     </ThemeProvider>
