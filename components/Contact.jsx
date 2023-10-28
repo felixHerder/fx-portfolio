@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Heading, Container, Box, Flex } from "theme-ui";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaMastodon } from "react-icons/fa";
 import { RiMailSendFill } from "react-icons/ri";
 import HeadShot from "../public/fb_headshot.jpg";
 import Image from "next/image";
@@ -45,6 +45,7 @@ export default function Contact() {
             [FaLinkedin, "Linkedin", "https://www.linkedin.com/in/felixbaciu"],
             [FaGithub, "Github", "https://github.com/felixHerder"],
             [RiMailSendFill, "felixbaciu@gmail.com", "mailto:felixbaciu@gmail.com"],
+	    [FaMastodon ,"Mastodon", "https://mastodon.green/@korgoth0"],
           ].map(([Icon, desc, link], idx) => (
             <Box
               id="linkContainer"
@@ -64,7 +65,7 @@ export default function Contact() {
                   height: [24, null, 36],
                 }}
               />
-              <a href={link} target="blank" sx={{ variant: "styles.a", fontSize: [1, null, 2], mx: 2, pt: 2 }}>
+              <a href={link} rel="me" target="blank" sx={{ variant: "styles.a", fontSize: [1, null, 2], mx: 2, pt: 2 }}>
                 {desc}
               </a>
             </Box>
