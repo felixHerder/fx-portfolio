@@ -53,7 +53,7 @@ export default function Work() {
               badges: ["javascript", "react", "chakra-ui", "redux", "cra", "firebase"],
               isrc: FeudalSwagImg,
               git: "https://github.com/felixHerder/feudal-swag",
-              web: "https://feudalswag.felixherder.space/shop",
+              web: "https://feudalswag.felixherder.com/shop",
               description:
                 "E-commerce app for a fictional medieval clothing store built using firebase populated with mockdata. \n Frontend is react with chakra-ui build with cra. Backend is firebase for authorization with email or google and firestore db for storing item and user data. \n Redux and react-router is used heavily with url search params for preserving navigation history and application state on refresh/reload. \n Firestore db queries are cached in memory as much as possible for a smoother ux and to decrease db load. Frontend is hosted on netlify.",
             },
@@ -62,7 +62,7 @@ export default function Work() {
               badges: ["typescript", "react", "material-ui", "webpack", "express", "mongodb atlas", "aws ec2"],
               isrc: HyperionImg,
               git: "https://github.com/felixHerder/hyperion-mc",
-              web: "https://hyperion.felixherder.space",
+              web: "https://hyperion.felixherder.com",
               description:
                 "Admin Control Panel for a rocket launch scheduling system using data from api.spacexdata.com. \n Frontend is react with typescript and material-ui using a custom made webpack and babel config, complete with dev and prod ready npm scripts. \n Backend is node with express using mongoose to connect to a atlas mongodb server. The frontend static files are also served from this express server.  \n Hosted on an aws ec2 private server instance using a nginx reverse proxy.",
             },
