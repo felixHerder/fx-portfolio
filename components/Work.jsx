@@ -71,7 +71,7 @@ export default function Work() {
               badges: ["javascript", "react", "tachyons", "cra", "express", "postgresql", "clarifai"],
               isrc: SwagboxImg,
               git: "https://github.com/felixHerder/swagbox-app",
-              web: "https://swagbox.felixherder.space",
+              web: "https://swagbox.felixherder.com",
               description:
                 "Dashboard for the Clarifai image clothing clasifier. Please be patient while the heroku backend spins up. \n Frontend is react built with create-react-app and tachyons. Backend is build with node and express with postgresql for user auth and redis for jwt authentication \n The submited image url is sent to the express backend which sends a post request to the Clarifai api. The frontend is hosted on github pages and the backend on heroku.",
             },
@@ -80,7 +80,7 @@ export default function Work() {
               badges: ["javascript", "react", "css", "cra", "pokeapi"],
               isrc: PokedexImg,
               git: "https://github.com/felixHerder/pokedex-cards",
-              web: "https://pokedex-cards.felixherder.space",
+              web: "https://pokedex-cards.felixherder.com",
               description:
                 "Single page app built with React using data from pokeapi.co and vanilla css. \n Each card is generated dynamicaly from json data supplied by the pokeapi rest server. Card images are composites of svg sprites from pokeapi and pseudorandom background images. \n Fetched data is cached in localstorage for subsequent page loads in order to reduce load on the pokeapi server. Also has an option for loading diferent generations of cards and a simple search. Build and developed with create-react-app and hosted on github pages",
             },
@@ -89,7 +89,7 @@ export default function Work() {
               badges: ["sass", "css"],
               isrc: GeofoldsImg,
               git: "https://github.com/felixHerder/geofolds",
-              web: "https://geofolds.felixherder.space",
+              web: "https://geofolds.felixherder.com",
               description:
                 "A landing page for a fictional company build using Sass with and emphasis on modular and reusable styles through variables, mixins and functions. No ui library or utility used. \n Css built from scss using Node and npm with scripts configured for development and production using sass and postcss with autoprefixer.",
             },
@@ -98,7 +98,7 @@ export default function Work() {
               badges: ["javascript", "css"],
               isrc: JssketchesImg,
               git: "https://github.com/felixHerder/jssketches",
-              web: "https://jssketches.felixherder.space",
+              web: "https://jssketches.felixherder.com",
               description:
                 "Various projects done with vanilla javascript and css. \n In order to get a better grasp of the fundamentals of frontend web development I've build these small experiments without the help of frameworks or ui libraries or utilities.",
             },
